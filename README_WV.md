@@ -13,6 +13,6 @@ Analysis and presentation of significant discrepancies in reporting between regi
 * NavBar to show login state and provide basic navigation options
 * Search form with various options for filtering potential news stories
 * Search result container
-* Story Card to contain single search result
+* Article Card to contain single search result
 * Detail pane to render entire article
 * Saved/starred story board to house favorite articles saved

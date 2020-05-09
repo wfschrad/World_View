@@ -1,0 +1,1 @@
+export const newsUrl = `http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-09&sortBy=publishedAt&apiKey=78bf6a2d1a574d3995099f73fb8f6cd3`

@@ -1,6 +1,32 @@
 /* TODO Add site wide styles */
 
+/* NAVIGATION */
+
 .link-selected {
     color: rgba(206, 36, 36, 0.527);
     font-weight: 900;
+}
+
+.news-fetch-button {
+    background-color: purple;
+    color: white;
+    border-radius: 16%;
+}
+
+/* ARTICLE CARD */
+
+.article-card {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    height: 300px;
+    width: 600px;
+    background-color: red;
+    border: 1px solid gray;
+}
+
+.article-card__content {
+    position: absolute;
+    height: 40%;
+    width: 80%;
+    background-color: white;
 }
