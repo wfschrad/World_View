@@ -1,1 +1,6 @@
 /* TODO Add site wide styles */
+
+.link-selected {
+    color: rgba(206, 36, 36, 0.527);
+    font-weight: 900;
+}
