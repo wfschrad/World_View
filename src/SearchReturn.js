@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 
 import { newsUrl } from './config';
 import { asyncHandler } from './utils';
-import { UserContext } from './UserContext';
+import UserContext from './UserContext';
 
 const handleClick = asyncHandler(async (ev) => {
     console.log('Fetch button clicked');
@@ -31,7 +31,7 @@ export default SearchReturn;
 
 // log.js:24 [HMR] Waiting for update signal from WDS...
 // SearchReturn.js:7 Fetch button clicked
-// SearchReturn.js:12 data 
+// SearchReturn.js:12 data
 // {status: "ok", totalResults: 4149, articles: Array(20)}
 // articles: Array(20)
 // 0:

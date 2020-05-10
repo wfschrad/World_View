@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -9,6 +9,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
 import { newsUrl } from './config';
+import UserContext from './UserContext';
 
 const useStyles = makeStyles({
     root: {
@@ -16,21 +17,39 @@ const useStyles = makeStyles({
     },
 });
 
-export default async function ImgMediaCard() {
+export default function ImgMediaCard( { articles }) {
     const classes = useStyles();
-    console.log('in IMG')
-    try {
-        const response = await fetch(newsUrl);
-        console.log('RESPONSEEEEEE:', response)
-        if (response.ok) {
-            const { articles } = await response.json();
-            console.log('ARTICLES: ', articles)
-            // setArticles(articles);
-        }
-        else {
-            console.log('fuck response', response);
-        }
-    } catch (e) { console.log('error(29)', e) }
+
+    console.log('articles in img_M', articles)
+    // const [articles, setArticles] = useState([]);
+    // let article;
+    // // const { articles, loadArticles } = useContext(UserContext);
+
+    // useEffect(() => {
+    //       // console.log(pokemon.length)
+
+    //     // if (!articles) return null;
+
+    //     (async () => {
+    //         try {
+    //             const response = await fetch(newsUrl);
+    //             console.log('RESPONSEEEEEE:', response)
+    //             if (response.ok) {
+    //                 articles = await response.json().articles;
+    //                 console.log('ARTICLES: ', articles)
+    //                 // setArticles(articles);
+    //                 console.log('single article', article)
+    //                 // setArticles(articles);
+    //             }
+    //             else {
+    //                 console.log('response not okay in img', response);
+    //             }
+    //         } catch (e) { console.log('error(29)', e) }
+    //     })();
+    // }, [articles]);
+
+    // if (!articles) return null;
+
     return (
         <Card className={classes.root}>
             <CardActionArea>
@@ -46,8 +65,7 @@ export default async function ImgMediaCard() {
                         Lizard
           </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-                        across all continents except Antarctica
+                        {articles[4].description}
           </Typography>
                 </CardContent>
             </CardActionArea>
