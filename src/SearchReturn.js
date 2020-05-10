@@ -1,25 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // import { Button } from 'react-router-dom';
 
 import { newsUrl } from './config';
 import { asyncHandler } from './utils';
+import { UserContext } from './UserContext';
 
 const handleClick = asyncHandler(async (ev) => {
     console.log('Fetch button clicked');
 
     //fetch weather
-    const newsRes = await fetch(newsUrl);
-    const data = await newsRes.json();
-    console.log('data obj 1.', data.articles[0]);
+    // loadArticles();
 });
 
-const SearchReturn = () => (
-
-    <div>
-        <span className='news-fetch-button' onClick={handleClick}>Fetch newsApi return</span>
-        <div className='new-fetch-simple-content-box'></div>
-    </div>
-);
+const SearchReturn = () => {
+    console.log('user context (function): ', UserContext)
+    console.log('userContext', useContext(UserContext));
+    // const { articles, loadArticles } = useContext(UserContext);
+    return (
+        <div>
+            <span className='news-fetch-button' onClick={handleClick}>Fetch newsApi return</span>
+            <div className='new-fetch-simple-content-box'></div>
+        </div>
+    )
+};
 
 export default SearchReturn;
 

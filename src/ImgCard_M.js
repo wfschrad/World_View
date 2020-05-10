@@ -8,15 +8,29 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import { newsUrl } from './config';
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
     },
 });
 
-export default function ImgMediaCard() {
+export default async function ImgMediaCard() {
     const classes = useStyles();
-
+    console.log('in IMG')
+    try {
+        const response = await fetch(newsUrl);
+        console.log('RESPONSEEEEEE:', response)
+        if (response.ok) {
+            const { articles } = await response.json();
+            console.log('ARTICLES: ', articles)
+            // setArticles(articles);
+        }
+        else {
+            console.log('fuck response', response);
+        }
+    } catch (e) { console.log('error(29)', e) }
     return (
         <Card className={classes.root}>
             <CardActionArea>
