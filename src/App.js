@@ -8,6 +8,7 @@ import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import ImgCard from './ImgCard_M';
 import FetchTest from './FetchTest';
+import CategorySelect from './CategorySelect';
 
 const App = () => (
   <BrowserRouter>
@@ -19,6 +20,7 @@ const App = () => (
       <Route path='/login' component={LoginForm} />
       <Route path='/signup' component={SignupForm} />
       <Route path='/fetchTest' component={FetchTest} />
+      <Route path='/categories' component={CategorySelect}/>
       <Route exact path='/' component={SearchReturn} />
     </Switch>
   </BrowserRouter>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { newsUrl } from './config';
+import { newsUrl, newsUrlBase, newsUrlSourceList, apiKEY } from './config';
 import ImgCard from './ImgCard_M';
 
 const FetchTest = () => {
@@ -9,7 +9,8 @@ const FetchTest = () => {
     useEffect(() => {
     (async () => {
         try {
-            const res = await fetch(newsUrl);
+            const res = await fetch(`${newsUrl}`);
+            console.log('source list res', res);
             const { articles } = await res.json();
             setArticles(articles);
             console.log('res:', res);

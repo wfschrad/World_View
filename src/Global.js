@@ -4,7 +4,17 @@ import UserContext from './UserContext';
 import { newsUrl } from "./config";
 import { getByAltText } from '@testing-library/react';
 
-const AppWithContext = () => {
+const Global = () => {
+
+    const newsCategories = [
+        'business',
+        'entertainment',
+        'general',
+        'health',
+        'science',
+        'sports',
+        'technology'
+    ]
 
     const newsCountries = {
         Argentina: 'ar',
@@ -70,6 +80,7 @@ const AppWithContext = () => {
     const [singleArticle, setSingleArticle] = useState(null);
     const [authToken, setAuthToken] = useState(localStorageToken);
     const [needLogin, setNeedLogin] = useState(!localStorageToken);
+    const [categories, setCategories] = useState(newsCategories);
 
     const login = (token) => {
         window.localStorage.setItem("state-worldViewElite-token", token);
@@ -108,12 +119,12 @@ const AppWithContext = () => {
                 needLogin,
                 login,
                 loadArticles,
-                // getOneArticle,
+                categories
             }}
         >
-            <App />
+            <App categories={newsCategories}/>
         </UserContext.Provider>
     );
 };
 
-export default AppWithContext;
+export default Global;

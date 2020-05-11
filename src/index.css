@@ -30,3 +30,13 @@
     width: 80%;
     background-color: white;
 }
+
+.cat-search-container {
+    width: 40%;
+    margin-left: 20px;
+}
+
+.cat-select {
+    width:70%;
+    margin-left: 20px;
+}
