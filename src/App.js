@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import ActiveLastBreadcrumb from './ActiveLastBreadcrumb_M';
+import Navigation from './Navigation';
 import SearchReturn from './SearchReturn';
 import ArticleCard from './ArticleCard';
 import LoginForm from './LoginForm';
@@ -12,7 +12,7 @@ import CategorySelect from './CategorySelect';
 
 const App = () => (
   <BrowserRouter>
-    <ActiveLastBreadcrumb />
+    <Navigation />
     <h1>Future Home of World View!</h1>
     <Switch>
       <Route path='/search' component={ArticleCard} />

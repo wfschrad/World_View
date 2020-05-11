@@ -1,8 +1,9 @@
 **MVPs**
 
-* Persistent userAuth with attached saved/starred stories
-* Search news based on country/region in addition to topic, popularity, and potentionally date via news api
+* Persistent userAuth with saved preferences
+* Search news based on country/region in addition to topic, category, popularity, and potentionally date via news api
 * Article Cards will respond to click by rendering full article with details
+* 'Explore' feature will generate news from randomly selected country on user-chosen topic or category
 
 **Bonus**
 

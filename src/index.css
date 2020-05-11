@@ -2,8 +2,23 @@
 
 /* NAVIGATION */
 
+.nav-container {
+    display: flex;
+    height: 80px;
+    width: 100%;
+    background-color: rgba(104, 5, 5, 1);
+    justify-content: center;
+}
+
+.nav-container__h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: 900;
+    align-self: center;
+}
+
 .link-selected {
-    color: rgba(206, 36, 36, 0.527);
+    color: rgb(109, 11, 11);
     font-weight: 900;
 }
 
