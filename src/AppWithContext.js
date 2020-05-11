@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import App from './App';
-import { UserContext } from './UserContext';
+import UserContext from './UserContext';
 import { newsUrl } from "./config";
 
 const AppWithContext = () => {
@@ -43,12 +43,12 @@ const AppWithContext = () => {
         <UserContext.Provider
             value={{
                 articles,
-                singlearticle,
+                singleArticle,
                 authToken,
                 needLogin,
                 login,
                 loadArticles,
-                getOneArticle,
+                // getOneArticle,
             }}
         >
             <App />

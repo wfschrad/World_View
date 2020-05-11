@@ -13,6 +13,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+import { API } from './config';
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -24,6 +26,34 @@ function Copyright() {
             {'.'}
         </Typography>
     );
+}
+
+const handleSignup = async (ev) => {
+    ev.preventDefault();
+    const formData = new FormData(document.getElementById('signupForm'));
+    const userEmail = formData.get('email');
+    const userPass = formData.get('password');
+
+    //create user
+
+    try {
+        const res = await fetch(`${API}users/signup`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: userEmail,
+                password: userPass
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!res.ok) throw res;
+
+        const { token, user: { id } } = await res.json();
+        console.log('token', token);
+        console.log('userId', id);
+        // console.log('user', user);
+    } catch(e) { console.log(e); }
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +89,7 @@ export default function SignUp() {
                 <Typography component="h1" variant="h5">
                     Sign up
         </Typography>
-                <form className={classes.form} noValidate>
+                <form id="signupForm" className={classes.form} onSubmit={handleSignup}>
                     <Grid container spacing={2}>
                         <Grid item xs={12}>
                             <TextField

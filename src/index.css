@@ -17,10 +17,10 @@
 
 .article-card {
     display: grid;
-    grid-template-columns: 70% 30%;
-    height: 300px;
-    width: 600px;
-    background-color: red;
+    grid-template-columns: 20% 80%;
+    height: 180px;
+    width: 720px;
+    /* background-color: red; */
     border: 1px solid gray;
 }
 

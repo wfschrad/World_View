@@ -26,6 +26,11 @@ function Copyright() {
     );
 }
 
+const handleLogin = (ev) => {
+    ev.preventDefault();
+    console.log('login activated')
+}
+
 const useStyles = makeStyles((theme) => ({
     paper: {
         marginTop: theme.spacing(8),
@@ -59,7 +64,7 @@ export default function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign in
         </Typography>
-                <form className={classes.form} noValidate>
+                <form className={classes.form} onSubmit={handleLogin}>
                     <TextField
                         variant="outlined"
                         margin="normal"

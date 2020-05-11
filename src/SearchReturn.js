@@ -13,12 +13,11 @@ const handleClick = asyncHandler(async (ev) => {
 });
 
 const SearchReturn = () => {
-    console.log('user context (function): ', UserContext)
-    console.log('userContext', useContext(UserContext));
-    // const { articles, loadArticles } = useContext(UserContext);
+    const myContext = useContext(UserContext);
+    console.log('context!!!!!!!', myContext)
     return (
         <div>
-            <span className='news-fetch-button' onClick={handleClick}>Fetch newsApi return</span>
+            <span className='news-fetch-button' onClick={handleClick}>Fetch newsApi</span>
             <div className='new-fetch-simple-content-box'></div>
         </div>
     )
