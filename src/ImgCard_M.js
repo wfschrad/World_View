@@ -52,13 +52,13 @@ export default function ImgMediaCard( { articles }) {
 
     return (
         <Card className={classes.root}>
-            <CardActionArea>
+            <CardActionArea onClick={() => window.open(articles[4].url)}>
                 <CardMedia
                     component="img"
-                    alt="Contemplative Reptile"
+                    alt={articles[4].title}
                     height="140"
                     image={articles[4].urlToImage}
-                    title="Contemplative Reptile"
+                    title={articles[4].title}
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
