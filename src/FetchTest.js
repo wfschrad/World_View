@@ -21,7 +21,13 @@ const FetchTest = () => {
     console.log('articles in fetchTest', articles);
     }, []);
     if (articles.length === 0) return null;
-    return (<ImgCard articles={articles}/>);
+    return (
+        <>
+        <h1>Test full Content</h1>
+        <a src={articles[4].url}>{articles[4].url}</a>
+    <ImgCard articles={articles}/>
+    </>
+    );
 }
 
 export default FetchTest;

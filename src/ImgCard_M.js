@@ -57,12 +57,12 @@ export default function ImgMediaCard( { articles }) {
                     component="img"
                     alt="Contemplative Reptile"
                     height="140"
-                    image="https://bitcoinist.com/wp-content/uploads/2020/05/road-trip-with-raj-_cbKur5I60A-unsplash-1920x1280.jpg"
+                    image={articles[4].urlToImage}
                     title="Contemplative Reptile"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {articles[4].title}
           </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
                         {articles[4].description}
