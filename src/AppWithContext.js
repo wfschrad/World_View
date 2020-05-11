@@ -2,9 +2,69 @@ import React, { useState } from 'react';
 import App from './App';
 import UserContext from './UserContext';
 import { newsUrl } from "./config";
+import { getByAltText } from '@testing-library/react';
 
 const AppWithContext = () => {
-    const localStorageToken = localStorage.getItem("state-worldViewElite-token");
+
+    const newsCountries = {
+        Argentina: 'ar',
+        Australia: 'au',
+        Austria: 'at',
+        Belgium: 'be',
+        Brazil: 'br',
+        Bulgaria: 'bg',
+        Canada: 'ca',
+        China: 'cn',
+        Colombia: 'co',
+        Cuba: 'cu',
+        "Czech Republic": 'cz',
+        Egypt: 'eg',
+        France: 'fr',
+        Germany: 'de',
+        Greece: 'gr',
+        "Hong Kong": 'hk',
+        Hungary: 'hu',
+        India: 'in',
+        Indonesia: 'id',
+        Ireland: 'ie',
+        Israel: 'il',
+        Italy: 'it',
+        Japan: 'jp',
+        Latvia: 'lv',
+        Lithuania: 'lt',
+        Malaysia: 'my',
+        Mexico: 'mx',
+        Morocco: 'ma',
+        Netherlands: 'nl',
+        "New Zealand": 'nz',
+        Nigeria: 'ng',
+
+        Norway: 'no',
+        Philippines: 'ph',
+        Poland: 'pl',
+        Portugal: 'pt',
+        Romania: 'ro',
+        Russia: 'ru',
+        "Saudi Arabia": 'sa',
+        Serbia: 'rs',
+        Singapore: 'sg',
+        Slovakia: 'sk',
+        Slovenia: 'si',
+        "South Africa": 'za',
+        "South Korea": 'kr',
+        Sweden: 'se',
+        Switzerland: 'ch',
+        Taiwan: 'tw',
+        Thailand: 'th',
+        Turkey: 'tr',
+        UAE: 'ae',
+        Ukraine: 'ua',
+        "United Kingdowm": 'gb',
+        "United States": 'us',
+        Venuzuela: 've'
+    }
+
+    const localStorageToken = localStorage.getItem("worldViewjtid_ACCESS_TOKEN");
 
     const [articles, setArticles] = useState([]);
     const [singleArticle, setSingleArticle] = useState(null);

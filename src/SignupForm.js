@@ -50,10 +50,14 @@ const handleSignup = async (ev) => {
         if (!res.ok) throw res;
 
         const { token, user: { id } } = await res.json();
-        console.log('token', token);
-        console.log('userId', id);
-        // console.log('user', user);
-    } catch(e) { console.log(e); }
+
+        // store jwt in local 
+
+        localStorage.setItem('worldViewjtid_ACCESS_TOKEN', token);
+        localStorage.setItem('worldViewjtid_CURRENT_USER_ID', id);
+
+
+    } catch (e) { console.log(e); }
 }
 
 const useStyles = makeStyles((theme) => ({

@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+import { API } from './config';
+
+
 function Copyright() {
     return (
         <Typography variant="body2" color="textSecondary" align="center">
@@ -26,9 +29,31 @@ function Copyright() {
     );
 }
 
-const handleLogin = (ev) => {
+const handleLogin = async (ev) => {
     ev.preventDefault();
-    console.log('login activated')
+    const formData = new FormData(document.getElementById('loginForm'));
+    const userEmail = formData.get('email');
+    const userPass = formData.get('password');
+
+    try {
+        const res = await fetch(`${API}users/login`, {
+            method: 'POST',
+            body: JSON.stringify({
+                email: userEmail,
+                password: userPass
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        if (!res.ok) {
+            throw res;
+        }
+        const { token, user: { id } } = await res.json();
+        // storage access_token in localStorage:
+        localStorage.setItem('worldViewjtid_ACCESS_TOKEN', token);
+        localStorage.setItem('worldViewjtid_CURRENT_USER_ID', id);
+    } catch (e) { console.log(e); }
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -64,7 +89,7 @@ export default function SignIn() {
                 <Typography component="h1" variant="h5">
                     Sign in
         </Typography>
-                <form className={classes.form} onSubmit={handleLogin}>
+                <form id="loginForm" className={classes.form} onSubmit={handleLogin}>
                     <TextField
                         variant="outlined"
                         margin="normal"
