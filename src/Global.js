@@ -80,7 +80,8 @@ const Global = () => {
     const [singleArticle, setSingleArticle] = useState(null);
     const [authToken, setAuthToken] = useState(localStorageToken);
     const [needLogin, setNeedLogin] = useState(!localStorageToken);
-    const [categories, setCategories] = useState(newsCategories);
+    const [categories, __setCategories] = useState(newsCategories);
+    const [countries, __setCountries] = useState(newsCountries);
 
     const login = (token) => {
         window.localStorage.setItem("state-worldViewElite-token", token);
@@ -89,40 +90,31 @@ const Global = () => {
     };
 
     const loadArticles = async () => {
-        // const response = await fetch(`${newsUrl}`, {
-        //     headers: { Authorization: `Bearer ${authToken}` }
-        // });
-        const response = await fetch(newsUrl);
-        if (response.ok) {
-            const { articles } = await response.json();
-            console.log('ARTICLES: ', articles)
-            setArticles(articles);
-        }
+        try {
+            const response = await fetch(newsUrl);
+            if (response.ok) {
+                const { articles } = await response.json();
+                setArticles(articles);
+                console.log('articles in global func', articles)
+                return articles;
+            }
+        } catch(e) { console.log(e); }
     };
-
-    // const getOneArticle = async (id) => {
-    //     const response = await fetch(`${baseUrl}/pokemon/${id}`, {
-    //         headers: { Authorization: `Bearer ${authToken}` },
-    //     });
-    //     if (response.ok) {
-    //         const pokemonResponse = await response.json();
-    //         setSinglePokemon(pokemonResponse);
-    //     }
-    // };
 
     return (
         <UserContext.Provider
             value={{
                 articles,
-                singleArticle,
+                setArticles,
                 authToken,
                 needLogin,
                 login,
                 loadArticles,
-                categories
+                categories,
+                countries
             }}
         >
-            <App categories={newsCategories}/>
+            <App />
         </UserContext.Provider>
     );
 };

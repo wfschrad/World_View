@@ -1,27 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import { newsUrl, newsUrlBase, newsUrlSourceList, apiKEY } from './config';
 import ImgCard from './ImgCard_M';
+import UserContext from './UserContext'
 
 const FetchTest = () => {
-    const [articles, setArticles] = useState([]);
+    // const [articles, setArticles] = useState([]);
+    const { articles, loadArticles, setArticles } = useContext(UserContext);
+
+    //not-functioning
 
     useEffect(() => {
-    (async () => {
-        try {
-            const res = await fetch(`${newsUrl}`);
-            console.log('source list res', res);
-            const { articles } = await res.json();
-            setArticles(articles);
-            console.log('res:', res);
-            console.log('articles:', articles)
-            // return <ImgCard />
-            console.log('at the end')
-        } catch (e) { console.log(e) }
-    })();
-    console.log('articles in fetchTest', articles);
+        (async () => {
+                await loadArticles();
+            })();
+            console.log('articles in Home', articles);
     }, []);
-    if (articles.length === 0) return null;
+
+
+    //functioning
+
+    // useEffect(() => {
+    // (async () => {
+    //     try {
+    //         const res = await fetch(`${newsUrl}`);
+    //         console.log('source list res', res);
+    //         const { articles } = await res.json();
+    //         setArticles(articles);
+    //         console.log('res:', res);
+    //         console.log('articles:', articles)
+    //         // return <ImgCard />
+    //         console.log('at the end')
+    //     } catch (e) { console.log(e) }
+    // })();
+    // console.log('articles in fetchTest', articles);
+    // }, []);
+    if (articles && articles.length === 0) return null;
     return (
         <>
         <h1>Test full Content</h1>

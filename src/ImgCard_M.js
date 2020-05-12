@@ -21,6 +21,7 @@ export default function ImgMediaCard( { articles }) {
     const classes = useStyles();
 
     console.log('articles in img_M', articles)
+    console.log('In IMG Render!!!')
     // const [articles, setArticles] = useState([]);
     // let article;
     // // const { articles, loadArticles } = useContext(UserContext);

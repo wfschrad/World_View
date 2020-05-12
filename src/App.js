@@ -9,6 +9,9 @@ import SignupForm from './SignupForm';
 import ImgCard from './ImgCard_M';
 import FetchTest from './FetchTest';
 import CategorySelect from './CategorySelect';
+import Modal from './Modal_M';
+import SearchForm from './SearchForm';
+import Home from './Home';
 
 const App = () => (
   <BrowserRouter>
@@ -20,8 +23,8 @@ const App = () => (
       <Route path='/login' component={LoginForm} />
       <Route path='/signup' component={SignupForm} />
       <Route path='/fetchTest' component={FetchTest} />
-      <Route path='/categories' component={CategorySelect}/>
-      <Route exact path='/' component={SearchReturn} />
+      <Route path='/categories' component={SearchForm}/>
+      <Route exact path='/' component={Home} />
     </Switch>
   </BrowserRouter>
 );

@@ -1,3 +1,25 @@
+import React, { useContext } from 'react';
+import Select from 'react-select';
+
+import UserContext from './UserContext';
+
+const CategorySelect = () => {
+    const { categories } = useContext(UserContext);
+    const selectCats = categories.map((cat) => ({ label: cat, value: cat }));
+    return (
+  <div className="cat-select-component">
+    <div className="cat-search-container">
+      <label>
+        Choose a Category:
+      <Select className="cat-select" options={selectCats} />
+      </label>
+    </div>
+  </div>
+    );
+}
+
+export default CategorySelect;
+
 // import React from 'react';
 
 // const CategorySelect = ({ categories }) => (
@@ -252,31 +274,3 @@
 // }
 
 //---------------------------------------------------------------------
-
-import React, { useContext } from 'react';
-import Select from 'react-select';
-
-import UserContext from './UserContext';
-
-const scaryAnimals = [
-  { label: "Alligators", value: 1 },
-  { label: "Crocodiles", value: 2 },
-  { label: "Sharks", value: 3 },
-  { label: "Small crocodiles", value: 4 },
-  { label: "Smallest crocodiles", value: 5 },
-  { label: "Snakes", value: 6 },
-];
-
-const CategorySelect = () => {
-    const { categories } = useContext(UserContext);
-    const selectCats = categories.map((cat) => ({ label: cat, value: cat }));
-    return (
-  <div className="cat-select-component">
-    <div className="cat-search-container">
-      <Select className="cat-select" options={selectCats} />
-    </div>
-  </div>
-    );
-}
-
-export default CategorySelect;

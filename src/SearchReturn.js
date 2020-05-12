@@ -19,6 +19,7 @@ const SearchReturn = () => {
         <div>
             <span className='news-fetch-button' onClick={handleClick}>Fetch newsApi</span>
             <div className='new-fetch-simple-content-box'></div>
+            <img src='../wVlogo.png' alt='world View'/>
         </div>
     )
 };
