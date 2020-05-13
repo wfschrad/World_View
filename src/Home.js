@@ -2,6 +2,7 @@ import React, { useEffect, useContext } from 'react';
 
 import UserContext from './UserContext';
 import HighlightArticle from './HighlightArticle';
+import ImgCard from './ImgCard_M';
 
 
 
@@ -32,9 +33,17 @@ const Home = () => {
             <div className='home-main__left'></div>
             <div className='home-main__right'>
                 { articles.length > 0 ? (
-                    <div><HighlightArticle/>{JSON.stringify(articles[1])}</div>
+                    <div className='story-container'>
+                        <HighlightArticle/>
+                        <div className='subHighlight-ImgCardPane'>
+                            <ImgCard className='subHighlight-ImgCardPane__img' article={articles[2]}/>
+                            <ImgCard className='subHighlight-ImgCardPane__img' article={articles[3]}/>
+                            <ImgCard className='subHighlight-ImgCardPane__img' article={articles[4]}/>
+                        </div>
+                        {JSON.stringify(articles[1])}
+                    </div>
                     ) : (
-                    <div>{JSON.stringify(articles)}</div>
+                    <div>OH SNAP!</div>
                     )
                 }
             </div>

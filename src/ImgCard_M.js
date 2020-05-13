@@ -15,12 +15,18 @@ const useStyles = makeStyles({
     root: {
         maxWidth: 345,
     },
+    typography: {
+        fontSize: "14px"
+    },
+    cardActionArea: {
+        maxHeight: "220px"
+    }
 });
 
-export default function ImgMediaCard( { articles }) {
+export default function ImgMediaCard( { article }) {
     const classes = useStyles();
 
-    console.log('articles in img_M', articles)
+    console.log('article in img_M', article)
     console.log('In IMG Render!!!')
     // const [articles, setArticles] = useState([]);
     // let article;
@@ -53,20 +59,20 @@ export default function ImgMediaCard( { articles }) {
 
     return (
         <Card className={classes.root}>
-            <CardActionArea onClick={() => window.open(articles[4].url)}>
+            <CardActionArea className={classes.cardActionArea} onClick={() => window.open(article.url)}>
                 <CardMedia
                     component="img"
-                    alt={articles[4].title}
+                    alt={article.title}
                     height="140"
-                    image={articles[4].urlToImage}
-                    title={articles[4].title}
+                    image={article.urlToImage}
+                    title={article.title}
                 />
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {articles[4].title}
+                <CardContent >
+                    <Typography className={classes.typography} gutterBottom variant="h5" component="h2">
+                        {`${article.title.slice(0,90)}...`}
           </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        {articles[4].description}
+                        {/* {article.description} */}
           </Typography>
                 </CardContent>
             </CardActionArea>
