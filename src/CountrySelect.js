@@ -13,12 +13,9 @@ const CountrySelect = () => {
 
     return (
         <div className="cat-select-component">
-          <div className="cat-search-container">
-             <label>
-            Choose a Country:
+          {/* <div className="cat-search-container"> */}
             <Select className="cat-select" options={selectCountries} />
-            </label>
-          </div>
+          {/* </div> */}
         </div>
           );
 }

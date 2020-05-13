@@ -12,11 +12,13 @@ import CategorySelect from './CategorySelect';
 import Modal from './Modal_M';
 import SearchForm from './SearchForm';
 import Home from './Home';
+import StatusBar from './StatusBar';
 
 const App = () => (
   <BrowserRouter>
     <Navigation />
-    <h1>Future Home of World View!</h1>
+    {/* <h1>Future Home of World View!</h1> */}
+    <StatusBar/>
     <Switch>
       <Route path='/search' component={ArticleCard} />
       <Route path='/imgCard' component={ImgCard} />

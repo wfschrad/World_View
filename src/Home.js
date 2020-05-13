@@ -40,6 +40,9 @@ const Home = () => {
                             <ImgCard className='subHighlight-ImgCardPane__img' article={articles[3]}/>
                             <ImgCard className='subHighlight-ImgCardPane__img' article={articles[4]}/>
                         </div>
+                        <button className='home-additional-articles-button'>Browse more articles</button>
+                        {/* Above button should render new container component with list of horizontal
+                        highlight cards. Evaluate use case for lazy-loading */}
                         {JSON.stringify(articles[1])}
                     </div>
                     ) : (

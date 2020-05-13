@@ -13,7 +13,7 @@ import UserContext from './UserContext';
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 345,
+        maxWidth: 267,
     },
     typography: {
         fontSize: "14px"

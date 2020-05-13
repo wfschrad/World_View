@@ -19,3 +19,16 @@
 * Story Card to contain single search result
 * Detail pane to render entire article
 * Saved/starred story board to house saved articles
+
+**Wed Goals**
+
+* 'Browse More' button should render new container component of all articles in 'highlight' layout, lazy-loading?
+
+* search listeners activate modal(s)
+* access values from selects, assign to context and use to fetch/store
+
+**Additional To-dos**
+
+* Render login state in nav
+* Save articles to DB???
+* Get some style
