@@ -7,12 +7,14 @@ import ArticleCard from './ArticleCard';
 import LoginForm from './LoginForm';
 import SignupForm from './SignupForm';
 import ImgCard from './ImgCard_M';
+import ImgCardHorizontal from './ImgCardHorizontal_M';
 import FetchTest from './FetchTest';
 import CategorySelect from './CategorySelect';
 import Modal from './Modal_M';
 import SearchForm from './SearchForm';
 import Home from './Home';
 import StatusBar from './StatusBar';
+import Results from './Results';
 
 const App = () => (
   <BrowserRouter>
@@ -26,6 +28,7 @@ const App = () => (
       <Route path='/signup' component={SignupForm} />
       <Route path='/fetchTest' component={FetchTest} />
       <Route path='/categories' component={SearchForm}/>
+      <Route path='/showAll' component={Results}/>
       <Route exact path='/' component={Home} />
     </Switch>
   </BrowserRouter>

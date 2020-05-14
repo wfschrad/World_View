@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import App from './App';
 import UserContext from './UserContext';
-import { newsUrl } from "./config";
+import { newsUrlTopCountry, newsUrlTopCountryV1, apiKEY } from "./config";
 import { getByAltText } from '@testing-library/react';
+
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI(apiKEY);
 
 const Global = () => {
 
@@ -75,13 +78,13 @@ const Global = () => {
     }
 
     const localStorageToken = localStorage.getItem("worldViewjtid_ACCESS_TOKEN");
-
     const [articles, setArticles] = useState([]);
     const [singleArticle, setSingleArticle] = useState(null);
     const [authToken, setAuthToken] = useState(localStorageToken);
     const [needLogin, setNeedLogin] = useState(!localStorageToken);
     const [categories, __setCategories] = useState(newsCategories);
     const [countries, __setCountries] = useState(newsCountries);
+    const [currCountry, setCurrCountry] = useState('us')
 
     const login = (token) => {
         window.localStorage.setItem("state-worldViewElite-token", token);
@@ -91,14 +94,35 @@ const Global = () => {
 
     const loadArticles = async () => {
         try {
-            const response = await fetch(newsUrl);
+            const response = await fetch(`${newsUrlTopCountryV1}${currCountry}&apiKey=${apiKEY}`);
+            // const response = await newsapi.v2.topHeadlines({
+            //     language: 'en',
+            //     country: currCountry
+            // });
+            console.log('language en')
             if (response.ok) {
                 const { articles } = await response.json();
                 setArticles(articles);
-                console.log('articles in global func', articles)
+                console.log('res', response);
+                console.log('articlesGLOBE99', articles)
                 return articles;
             }
         } catch(e) { console.log(e); }
+    };
+    const getArticles = async() => {
+        const storedArticles = localStorage.getItem(`worldViewArticles-layoutDev-${currCountry}`);
+        console.log('stored', storedArticles);
+        if (storedArticles !== 'undefined') {
+            articles = JSON.parse(storedArticles);
+            setArticles(articles)
+        }else {
+            console.log('fetching');
+            const fetchedArticles = await loadArticles();
+            localStorage.setItem(`worldViewArticles-layoutDev-${currCountry}`, JSON.stringify(fetchedArticles));
+            articles = fetchedArticles
+            setArticles(articles);
+            return articles;
+        }
     };
 
     return (
@@ -107,11 +131,18 @@ const Global = () => {
                 articles,
                 setArticles,
                 authToken,
+                setAuthToken,
                 needLogin,
+                setNeedLogin,
+                categories,
+                __setCategories,
+                countries,
+                __setCountries,
                 login,
                 loadArticles,
-                categories,
-                countries
+                getArticles,
+                currCountry,
+                setCurrCountry
             }}
         >
             <App />

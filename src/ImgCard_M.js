@@ -26,37 +26,6 @@ const useStyles = makeStyles({
 export default function ImgMediaCard( { article }) {
     const classes = useStyles();
 
-    console.log('article in img_M', article)
-    console.log('In IMG Render!!!')
-    // const [articles, setArticles] = useState([]);
-    // let article;
-    // // const { articles, loadArticles } = useContext(UserContext);
-
-    // useEffect(() => {
-    //       // console.log(pokemon.length)
-
-    //     // if (!articles) return null;
-
-    //     (async () => {
-    //         try {
-    //             const response = await fetch(newsUrl);
-    //             console.log('RESPONSEEEEEE:', response)
-    //             if (response.ok) {
-    //                 articles = await response.json().articles;
-    //                 console.log('ARTICLES: ', articles)
-    //                 // setArticles(articles);
-    //                 console.log('single article', article)
-    //                 // setArticles(articles);
-    //             }
-    //             else {
-    //                 console.log('response not okay in img', response);
-    //             }
-    //         } catch (e) { console.log('error(29)', e) }
-    //     })();
-    // }, [articles]);
-
-    // if (!articles) return null;
-
     return (
         <Card className={classes.root}>
             <CardActionArea className={classes.cardActionArea} onClick={() => window.open(article.url)}>
